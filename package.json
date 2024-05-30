@@ -1,0 +1,15 @@
+{
+  "name": "jenkins-docker-pipeline",
+  "version": "1.0.0",
+  "description": "An example of combination between jenkins and docker.\r When there is a push event to github, jenkins pipeline runs -> builds -> pushes an image to docker hub.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
