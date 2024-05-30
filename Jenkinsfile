@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent any
     triggers{
         githubPush()
     }
@@ -9,7 +9,7 @@ pipeline{
                 git 'https://github.com/vuongle/jenkins-docker-pipeline.git'
             }
         }
-        stage("Build Docker"){
+        stage("Build"){
             agent any
             steps {
                 withDockerRegistry(credentialsId: "vuongle-dockerhub", url: "https://index.docker.io/v1/"){
