@@ -13,8 +13,8 @@ pipeline{
             agent any
             steps {
                 withDockerRegistry(credentialsId: "vuongle-dockerhub", url: "https://index.docker.io/v1/"){
-                    sh 'docker build -t vuongle/nodejs-test:v1 .'
-                    sh 'docker push vuongle/nodejs-test:v1'
+                    sh 'docker build -t vuongle/nodejs-test:v2 .'
+                    sh 'docker push vuongle/nodejs-test:v2'
                 }
             }
         }
