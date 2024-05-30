@@ -1,5 +1,5 @@
 pipeline{
-    agent { dockerfile true }
+    agent none
     triggers{
         githubPush()
     }
@@ -10,6 +10,7 @@ pipeline{
             }
         }
         stage("Build Docker"){
+            agent any
             steps {
                 withDockerRegistry(credentialsId: "vuongle-dockerhub", url: "https://index.docker.io/v1/"){
                     sh 'docker build -t vuongle/nodejs-test:v1 .'
