@@ -18,10 +18,10 @@ pipeline{
                 }
             }
         }
-        post{
-            always{
-                mail bcc: '', body: 'This email is sent to you when there is a build triggered.', cc: '', from: '', replyTo: '', subject: 'Jenkins Build Notification', to: 'le.quang.vuong@quantic.com.vn'
-            }
+    }
+    post{
+        always{
+            mail bcc: '', body: 'This email is sent to you when there is a build triggered.', cc: '', from: '', replyTo: '', subject: 'Jenkins Build Notification', to: 'le.quang.vuong@quantic.com.vn'
         }
     }
 }
