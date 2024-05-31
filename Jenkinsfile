@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    environment{
+        DOCKER_IMAGE = "vuongle/nodejs-test"
+        DOCKER_TAG = "v3"
+    }
     triggers{
         githubPush()
     }
@@ -13,9 +17,12 @@ pipeline{
             agent any
             steps {
                 withDockerRegistry(credentialsId: "vuongle-dockerhub", url: "https://index.docker.io/v1/"){
-                    sh 'docker build -t vuongle/nodejs-test:v2 .'
-                    sh 'docker push vuongle/nodejs-test:v2'
+                    sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                    sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
+
+                // remove image after pushing
+                sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
             }
         }
     }
